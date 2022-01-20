@@ -1,5 +1,12 @@
 name: A workflow for my Hello World file
-on: push
+on: 
+  push:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Bump Version
+        default: v1.0.0
+        required: true
 
 jobs:
   build:
