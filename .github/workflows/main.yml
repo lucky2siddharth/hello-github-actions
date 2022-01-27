@@ -12,7 +12,7 @@ jobs:
             echo -in $HOME
       env:
         NAME: ${{ github.event.type }}
-        HOME: ${{ github.event }}
+        HOME: ${{ github.event.inputs.home }}
   build:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Hello world action
