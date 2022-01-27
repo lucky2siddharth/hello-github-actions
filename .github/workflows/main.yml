@@ -10,7 +10,9 @@ jobs:
         - run: |
             echo Hello $NAME!
             echo -in $HOME
-            echo $github.event
+      env:
+        NAME: ${{ github.event.type }}
+        HOME: ${{ github.event }}
   build:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Hello world action
