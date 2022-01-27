@@ -4,6 +4,13 @@ on:
   workflow_dispatch:
 
 jobs:
+  say_hello:
+      runs-on: ubuntu-latest
+      steps:
+        - run: |
+            echo Hello $NAME!
+            echo -in $HOME
+            echo $github.event
   build:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Hello world action
