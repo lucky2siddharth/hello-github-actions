@@ -11,7 +11,7 @@ jobs:
         run: echo Defaut
       - name: 'conditional'
         run: echo Conditional
-        if: ${{ github.event_name == 'workflow_dispatch' }}
+        if: ${{ (github.event_name == 'workflow_dispatch') && (github.ref_name == 'main') }}
   say_hello:
       runs-on: ubuntu-latest
       steps:
