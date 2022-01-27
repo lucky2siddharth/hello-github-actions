@@ -19,7 +19,7 @@ jobs:
             echo Hello $NAME!
             echo -in $HOME
       env:
-        NAME: ${{ github.event.type }}
+        NAME: ${{ github.ref }}
         HOME: ${{ github.event_name }}
   build:
     if: ${{ github.event_name == 'workflow_dispatch' }}
