@@ -9,6 +9,7 @@ jobs:
       steps:
         - run: |
             echo Hello $NAME!
+            if: ${{ github.event_name == 'workflow_dispatch' }}
             echo -in $HOME
       env:
         NAME: ${{ github.event.type }}
