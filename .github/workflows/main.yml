@@ -4,12 +4,19 @@ on:
   workflow_dispatch:
 
 jobs:
+  conditional_step:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'default'
+        run: echo Defaut
+      - name: 'conditional'
+        run: echo Conditional
+        if: ${{ github.event_name == 'workflow_dispatch' }}
   say_hello:
       runs-on: ubuntu-latest
       steps:
         - run: |
             echo Hello $NAME!
-            if: ${{ github.event_name == 'workflow_dispatch' }}
             echo -in $HOME
       env:
         NAME: ${{ github.event.type }}
